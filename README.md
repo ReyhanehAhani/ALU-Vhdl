@@ -2,9 +2,8 @@
 # ALU
 
 The purpose of this project is to build a logical unit in VHDL language in ISE software, which includes sequential and composite parts.
-to be In the first part of the project, we build the combined part of the circuit in which the logical unit (ALU) performs 16 different operations.
-performs, which include logical operations, arithmetic operations, shift and rotation, and conversion of BCD code to binary.
-In the second part of the project, we add the sequential part of the circuit to the previous part to complete the desired logic-arithmetic unit. At
+In the first part of the project, we build the combined part of the circuit in which the logical unit (ALU) performs 16 different operations. which include logical operations, arithmetic operations, shift and rotation, and conversion of BCD code to binary.
+In the second part of the project, we add the sequential part of the circuit to the previous part to complete the desired logic-arithmetic unit.
 Finally, in the third part of the project, we test the written code with two different methods and compare these two methods.
 
 
@@ -12,7 +11,7 @@ Finally, in the third part of the project, we test the written code with two dif
 
  -  ## OPCODES
   
-As mentioned in this part, we create the combined part of the circuit. In addition to 16 different operations that this logical unit
+As mentioned before, we create the combined part of the circuit. In addition to 16 different operations that this logical unit
 does, it also provides information regarding the output of the operations, which are whether it is symmetrical or not (X_bin_pal),
 prime or not (X_prime) and negative or not (N). For the first two cases, we created separate modules.
 - For OPCODE=0000, two inputs A and B are put into X, and output Y, Cout, and V are equal to zero.
@@ -24,7 +23,7 @@ prime or not (X_prime) and negative or not (N). For the first two cases, we crea
 - For OPCODE=0011, the result of xnor two inputs A and B are put in X and output Y, Cout and V are equal to zero.
 
 - For OPCODE=0100, the unsigned addition operation is performed in such a way that the inputs are first resized (X,N)
-    That is, we make A and B 9 bits and add them together, and then put the first 8 bits in X output and the 9th bit in Cout. 
+ , we make A and B 9 bits and add them together, and then put the first 8 bits in X output and the 9th bit in Cout. 
 
 
 - For OPCODE=0101, the addition operation is performed with a sign in such a way that first with the resize(X,N) operation of the inputs, i.e.
@@ -35,7 +34,7 @@ prime or not (X_prime) and negative or not (N). For the first two cases, we crea
     resize(X,N) We make the inputs A and B 9-bit (unsigned) and add them together. In this case, we must also add Cin with it.
     for this we must first convert it from std_logic to std_logic_vector. for this purpose
     We add an ineffective zero bit to the MSB and because Cin has two bits, it is converted to std_logic_vector
-    Is. Finally, we make Cin unsigned and add A and B at the end. Then the first 8 bits are output
+   . Finally, we make Cin unsigned and add A and B at the end. Then the first 8 bits are output
     We put X and the 9th bit in Cout. Output Y and V are equal to zero.
 
 - For OPCODE=0111, the operation of multiplying with a sign is performed in such a way that the inputs, namely A and B, are mixed with a sign.
@@ -50,7 +49,7 @@ prime or not (X_prime) and negative or not (N). For the first two cases, we crea
 - For OPCODE=1010, the operation of rotation to the left is performed in such a way that with the input rotate_left(X,N) operation
     We shift A to the left by one unit and put it in X output.     Output Y, Cout and V are equal to zero.
 
-- For OPCODE=1011, the operation of turning to the left is done with the carry bit so that when Cin: A is a
+- For OPCODE=1011, the operation of turning to the left is done with the carry bit so that when Cin: A
     We rotate the unit to the left, the last bit of A is removed, and as a result, we put it in Cout, and the Cin bit is connected to the beginning of the A input.
     We can finally put the result in X output. Output Y and V are equal to zero.
 
