@@ -9,7 +9,7 @@ Finally, in the third part of the project, we test the written code with two dif
 
 ## 
 
- -  ## OPCODES
+ # OPCODES
   
 As mentioned before, we create the combined part of the circuit. In addition to 16 different operations that this logical unit
 does, it also provides information regarding the output of the operations, which are whether it is symmetrical or not (X_bin_pal),
